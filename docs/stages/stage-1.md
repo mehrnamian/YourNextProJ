@@ -24,7 +24,7 @@ secrets as described in the [scan runbook](../../spikes/stage1/RUNBOOK.md).
 
 ## Validation performed
 
-- Python 3.12.3: 18 automated tests passed locally.
+- Python 3.12.3: 20 automated tests passed locally.
 - Ruff lint: passed.
 - Mypy type checking: passed.
 - GitHub Actions CI: passed on the Stage 1 branch in workflow run
@@ -45,6 +45,13 @@ secrets as described in the [scan runbook](../../spikes/stage1/RUNBOOK.md).
   control. The Actions workflow uploads no scan output.
 - User-supplied job identifiers are hashed before being written to logs or workflow
   summaries.
+- The pandas and language-specific testing signals require package, test-file, or
+  specific-topic evidence; language share alone is not treated as evidence of pandas
+  use or tests. Signal definitions are included in the feature-cache fingerprint so
+  taxonomy changes trigger fresh extraction.
+- The three-repository pilot comparison produced before this matcher change is
+  superseded. Its local feature files must be regenerated before reporting updated
+  recall or precision.
 
 ## Outstanding measurements
 

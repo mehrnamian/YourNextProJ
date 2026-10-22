@@ -36,14 +36,12 @@ signals:
     matchers:
       dependencies: [pytest, unittest, hypothesis]
       file_patterns: ["test_*.py", "**/test_*.py", "tests/**/*.py"]
-      languages: {python: 0.2}
-      topics: [pytest, testing]
+      topics: [pytest]
   - key: testing-js
     matchers:
       dependencies: [jest, vitest, mocha, playwright]
       file_patterns: ["*.test.js", "*.test.ts", "*.spec.js", "*.spec.ts", "tests/**/*.js", "tests/**/*.ts"]
-      languages: {javascript: 0.2, typescript: 0.2}
-      topics: [testing, jest, vitest]
+      topics: [jest, vitest]
   - key: api-fastapi
     matchers:
       dependencies: [fastapi, uvicorn]
@@ -71,8 +69,7 @@ signals:
   - key: data-pandas
     matchers:
       dependencies: [pandas]
-      languages: {python: 0.2}
-      topics: [pandas, data-analysis]
+      topics: [pandas]
   - key: ml-sklearn
     matchers:
       dependencies: [scikit-learn, sklearn]

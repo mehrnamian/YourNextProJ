@@ -1,0 +1,12 @@
+.env
+.env.*
+.venv/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.py[cod]
+spikes/stage1/.cache/
+spikes/stage1/out/
+spikes/stage1/labels/*.yaml
+!spikes/stage1/labels/template.yaml

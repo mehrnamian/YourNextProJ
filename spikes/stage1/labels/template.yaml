@@ -1,0 +1,5 @@
+repos: []
+# Add only public repositories that you have hand-labeled:
+# repos:
+#   - repo_url: https://github.com/OWNER/REPOSITORY
+#     competency_keys: [iac-terraform, testing-python]

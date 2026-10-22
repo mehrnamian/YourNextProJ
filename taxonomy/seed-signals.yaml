@@ -1,0 +1,108 @@
+version: 1
+signals:
+  - key: cloud-azure
+    matchers:
+      dependencies: [azure-identity, azure-mgmt-resource, azure-storage-blob]
+      topics: [azure, microsoft-azure]
+  - key: cloud-aws
+    matchers:
+      dependencies: [boto3, aws-cdk-lib]
+      topics: [aws, amazon-web-services]
+  - key: cloud-gcp
+    matchers:
+      dependencies: [google-cloud-storage, google-cloud-bigquery, google-cloud]
+      topics: [gcp, google-cloud]
+  - key: iac-terraform
+    matchers:
+      file_patterns: ["*.tf", "*.tfvars"]
+      topics: [terraform]
+  - key: iac-bicep
+    matchers:
+      file_patterns: ["*.bicep"]
+      topics: [bicep, azure-bicep]
+  - key: containers-docker
+    matchers:
+      file_patterns: [dockerfile*, docker-compose.*, compose.yml, compose.yaml]
+      topics: [docker, containers]
+  - key: orchestration-kubernetes
+    matchers:
+      file_patterns: ["k8s/**/*.yaml", "k8s/**/*.yml", "kubernetes/**/*.yaml", "kubernetes/**/*.yml"]
+      topics: [kubernetes, k8s]
+  - key: ci-github-actions
+    matchers:
+      file_patterns: [".github/workflows/*.yml", ".github/workflows/*.yaml"]
+      topics: [github-actions]
+  - key: testing-python
+    matchers:
+      dependencies: [pytest, unittest, hypothesis]
+      file_patterns: ["test_*.py", "**/test_*.py", "tests/**/*.py"]
+      languages: {python: 0.2}
+      topics: [pytest, testing]
+  - key: testing-js
+    matchers:
+      dependencies: [jest, vitest, mocha, playwright]
+      file_patterns: ["*.test.js", "*.test.ts", "*.spec.js", "*.spec.ts", "tests/**/*.js", "tests/**/*.ts"]
+      languages: {javascript: 0.2, typescript: 0.2}
+      topics: [testing, jest, vitest]
+  - key: api-fastapi
+    matchers:
+      dependencies: [fastapi, uvicorn]
+      topics: [fastapi]
+  - key: api-django
+    matchers:
+      dependencies: [django, djangorestframework]
+      topics: [django, django-rest-framework]
+  - key: frontend-react
+    matchers:
+      dependencies: [react, react-dom]
+      topics: [react]
+  - key: frontend-nextjs
+    matchers:
+      dependencies: [next]
+      topics: [nextjs, next-js]
+  - key: db-postgres
+    matchers:
+      dependencies: [psycopg, psycopg2, asyncpg, pg]
+      topics: [postgres, postgresql]
+  - key: db-redis
+    matchers:
+      dependencies: [redis, ioredis]
+      topics: [redis]
+  - key: data-pandas
+    matchers:
+      dependencies: [pandas]
+      languages: {python: 0.2}
+      topics: [pandas, data-analysis]
+  - key: ml-sklearn
+    matchers:
+      dependencies: [scikit-learn, sklearn]
+      topics: [scikit-learn, machine-learning]
+  - key: ml-xgboost
+    matchers:
+      dependencies: [xgboost]
+      topics: [xgboost]
+  - key: data-orchestration
+    matchers:
+      dependencies: [apache-airflow, prefect, dagster]
+      topics: [airflow, prefect, dagster, data-orchestration]
+  - key: data-dbt
+    matchers:
+      dependencies: [dbt-core, dbt-postgres, dbt-bigquery]
+      file_patterns: [dbt_project.yml]
+      topics: [dbt, analytics-engineering]
+  - key: streaming-kafka
+    matchers:
+      dependencies: [kafka-python, confluent-kafka, aiokafka]
+      topics: [kafka, streaming]
+  - key: language-python
+    matchers:
+      languages: {python: 0.5}
+      file_patterns: [pyproject.toml, requirements.txt, pipfile]
+  - key: language-typescript
+    matchers:
+      languages: {typescript: 0.5}
+      dependencies: [typescript]
+  - key: api-graphql
+    matchers:
+      dependencies: [graphql, strawberry-graphql, ariadne, apollo-server]
+      topics: [graphql]

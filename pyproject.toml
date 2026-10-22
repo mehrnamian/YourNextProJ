@@ -1,5 +1,6 @@
 [tool.pytest.ini_options]
 testpaths = ["workers/analysis/tests"]
+pythonpath = ["."]
 
 [tool.ruff]
 line-length = 100

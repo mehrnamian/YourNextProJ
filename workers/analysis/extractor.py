@@ -154,12 +154,23 @@ def metadata_fingerprint(
     language_sizes: dict[str, int],
     topics: tuple[str, ...],
     default_branch: str | None,
+    signals: tuple[Signal, ...],
 ) -> str:
     payload = {
         "primary_language": primary_language,
         "language_sizes": language_sizes,
         "topics": sorted(topics),
         "default_branch": default_branch,
+        "signals": [
+            {
+                "key": signal.key,
+                "dependencies": signal.dependencies,
+                "file_patterns": signal.file_patterns,
+                "topics": signal.topics,
+                "languages": signal.languages,
+            }
+            for signal in signals
+        ],
     }
     encoded = json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()

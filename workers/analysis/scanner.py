@@ -82,6 +82,7 @@ def scan_installation(
                 language_sizes=repository.language_sizes,
                 topics=repository.topics,
                 default_branch=repository.default_branch,
+                signals=signals,
             )
             destination = feature_dir / f"{repository_key(repository.name_with_owner)}.json"
             cached = _read_feature_cache(destination)
